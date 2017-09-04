@@ -1,0 +1,17 @@
+{
+"Type": "dynamic_obstacles3d",
+
+"Params": 
+[
+	{
+		"NumObstacles": 50,
+		"ObstacleWidth0": 0.5,
+		"ObstacleWidth1": 1,
+		"ObstacleHeight0": 0.5,
+		"ObstacleHeight1": 2,
+		"ObstacleSpeed0": 0.2,
+		"ObstacleSpeed1": 1.3,
+		"ObstacleSpeedLerpPow": 3
+	}
+]
+}

@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60C67731-A9B1-4B7D-A324-528316F56764}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TerrainRL_Optimizer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>DeepLoco_Optimizer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ENABLE_TRAINING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Bullet\include;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Json_cpp;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\cma_espp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Bullet\Debug\;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Json_cpp\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BulletDynamics_Debug.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;jsoncpp_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;GOOGLE_GLOG_DLL_DECL=;CPU_ONLY;ENABLE_TRAINING;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\;..\..\library\Bullet3\src\;..\..\library\;..\..\library\caffe\include\;..\..\library\boost\boost_1_64_0\;..\..\library\caffe\3rdparty\include\hdf5;..\..\library\caffe\3rdparty\include\;..\..\library\caffe\3rdparty\include\openblas;..\..\library\caffe\3rdparty\include\lmdb;..\..\library\OpenCV\include;..\..\library\caffe\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\library\lib;..\..\library\Bullet3\build3\lib\Debug;..\..\library\boost\boost_1_64_0\stage\lib;..\..\library\boost\boost_1_64_0\libs;..\..\library\caffe\3rdparty\lib;..\..\library\OpenCV\x64\vc12\staticlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BulletDynamics_Debug.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;opencv_core300d.lib;opencv_calib3d300d.lib;opencv_flann300d.lib;opencv_highgui300d.lib;opencv_imgproc300d.lib;opencv_imgcodecs300d.lib;opencv_ml300d.lib;opencv_objdetect300d.lib;opencv_photo300d.lib;opencv_features2d300d.lib;opencv_stitching300d.lib;opencv_video300d.lib;opencv_videostab300d.lib;opencv_hal300d.lib;libjpegd.lib;libjasperd.lib;libpngd.lib;IlmImfd.lib;libtiffd.lib;libwebpd.lib;gflagsd.lib;libglogd.lib;libprotobufd.lib;libprotocd.lib;leveldbd.lib;lmdbd.lib;libhdf5_D.lib;libhdf5_hl_D.lib;Shlwapi.lib;zlibd.lib;libopenblas.dll.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;ENABLE_TRAINING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Bullet\include;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Json_cpp;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\cma_espp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Bullet\Release;C:\Users\Jason\Documents\compsci_stuff\c++_stuff\library\Json_cpp\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CPU_ONLY;GOOGLE_GLOG_DLL_DECL=;ENABLE_TRAINING;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\;..\..\library\Bullet3\src\;..\..\library\;..\..\library\caffe\include\;..\..\library\boost\boost_1_64_0\;..\..\library\caffe\3rdparty\include\hdf5;..\..\library\caffe\3rdparty\include\;..\..\library\caffe\3rdparty\include\openblas;..\..\library\caffe\3rdparty\include\lmdb;..\..\library\OpenCV\include;..\..\library\caffe\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\library\lib;..\..\library\Bullet3\build3\lib\Release;..\..\library\boost\boost_1_64_0\stage\lib;..\..\library\boost\boost_1_64_0\libs;..\..\library\caffe\3rdparty\lib;..\..\library\OpenCV\x64\vc12\staticlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;opencv_core300.lib;opencv_calib3d300.lib;opencv_flann300.lib;opencv_highgui300.lib;opencv_imgproc300.lib;opencv_imgcodecs300.lib;opencv_ml300.lib;opencv_objdetect300.lib;opencv_photo300.lib;opencv_features2d300.lib;opencv_stitching300.lib;opencv_video300.lib;opencv_videostab300.lib;opencv_hal300.lib;libjpeg.lib;libjasper.lib;libpng.lib;IlmImf.lib;libtiff.lib;libwebp.lib;gflags.lib;libglog.lib;libprotobuf.lib;libprotoc.lib;leveldb.lib;lmdb.lib;libhdf5.lib;libhdf5_hl.lib;Shlwapi.lib;zlib.lib;libopenblas.dll.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\library\caffe\src\caffe\blob.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\common.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\data_reader.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\data_transformer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\internal_thread.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\absval_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\accuracy_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\argmax_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\base_conv_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\base_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\batch_norm_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\batch_reindex_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\bias_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\bnll_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\concat_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\contrastive_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\conv_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\crop_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_conv_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_lcn_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_lrn_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_pooling_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_relu_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_sigmoid_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_softmax_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\cudnn_tanh_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\deconv_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\dropout_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\dummy_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\eltwise_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\elu_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\embed_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\euclidean_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\exp_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\filter_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\flatten_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\hdf5_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\hdf5_output_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\hinge_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\im2col_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\image_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\infogain_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\inner_product_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\input_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\log_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\lrn_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\lstm_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\lstm_unit_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\memory_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\multinomial_logistic_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\mvn_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\neuron_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\pooling_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\power_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\prelu_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\recurrent_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\reduction_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\relu_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\reshape_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\rnn_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\scale_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\sigmoid_cross_entropy_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\sigmoid_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\silence_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\slice_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\softmax_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\softmax_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\split_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\spp_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\tanh_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\threshold_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\tile_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\weighted_euclidean_loss_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layers\window_data_layer.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\layer_factory.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\net.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\parallel.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\proto\caffe.pb.cc" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\proto\caffe_pretty_print.pb.cc" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\adadelta_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\adagrad_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\adam_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\nesterov_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\rmsprop_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\solvers\sgd_solver.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\syncedmem.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\benchmark.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\blocking_queue.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\cudnn.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\db.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\db_leveldb.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\db_lmdb.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\hdf5.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\im2col.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\insert_splits.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\io.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\math_functions.cpp" />
+    <ClCompile Include="..\..\library\caffe\src\caffe\util\upgrade_proto.cpp" />
+    <ClCompile Include="..\anim\Character.cpp" />
+    <ClCompile Include="..\anim\IKSolver.cpp" />
+    <ClCompile Include="..\anim\KinCharacter.cpp" />
+    <ClCompile Include="..\anim\KinController.cpp" />
+    <ClCompile Include="..\anim\KinTree.cpp" />
+    <ClCompile Include="..\anim\MocapStepController.cpp" />
+    <ClCompile Include="..\anim\Motion.cpp" />
+    <ClCompile Include="..\learning\ACLearner.cpp" />
+    <ClCompile Include="..\learning\ACTrainer.cpp" />
+    <ClCompile Include="..\learning\CaclaTrainer.cpp" />
+    <ClCompile Include="..\learning\ExpBuffer.cpp" />
+    <ClCompile Include="..\learning\ExpTuple.cpp" />
+    <ClCompile Include="..\learning\NeuralNet.cpp" />
+    <ClCompile Include="..\learning\NeuralNetLearner.cpp" />
+    <ClCompile Include="..\learning\NeuralNetTrainer.cpp" />
+    <ClCompile Include="..\learning\NNSolver.cpp" />
+    <ClCompile Include="..\learning\TrainerInterface.cpp" />
+    <ClCompile Include="..\scenarios\Scenario.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExp.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpCacla.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpHike.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpImitate.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpImitateStep.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpImitateTarget.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioExpSoccer.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioHikeEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitate.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitateEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitateStep.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitateStepEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitateTarget.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioImitateTargetEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioPoliEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioSimChar.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioSoccerEval.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioTrackMotion.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioTrain.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioTrainCacla.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioTrainHike.cpp" />
+    <ClCompile Include="..\scenarios\ScenarioTrainSoccer.cpp" />
+    <ClCompile Include="..\sim\BaseControllerCacla.cpp" />
+    <ClCompile Include="..\sim\BipedStepController3D.cpp" />
+    <ClCompile Include="..\sim\CharController.cpp" />
+    <ClCompile Include="..\sim\ContactManager.cpp" />
+    <ClCompile Include="..\sim\Controller.cpp" />
+    <ClCompile Include="..\sim\CtController.cpp" />
+    <ClCompile Include="..\sim\CtCtrlUtil.cpp" />
+    <ClCompile Include="..\sim\CtPDController.cpp" />
+    <ClCompile Include="..\sim\CtPDPhaseController.cpp" />
+    <ClCompile Include="..\sim\CtPhaseController.cpp" />
+    <ClCompile Include="..\sim\CtTargetController.cpp" />
+    <ClCompile Include="..\sim\ExpPDController.cpp" />
+    <ClCompile Include="..\sim\Ground.cpp" />
+    <ClCompile Include="..\sim\GroundConveyor3D.cpp" />
+    <ClCompile Include="..\sim\GroundDynamicObstacles3D.cpp" />
+    <ClCompile Include="..\sim\GroundFactory.cpp" />
+    <ClCompile Include="..\sim\GroundHills3D.cpp" />
+    <ClCompile Include="..\sim\GroundObstacles3D.cpp" />
+    <ClCompile Include="..\sim\GroundPlane.cpp" />
+    <ClCompile Include="..\sim\GroundTrail3D.cpp" />
+    <ClCompile Include="..\sim\GroundVar2D.cpp" />
+    <ClCompile Include="..\sim\GroundVar3D.cpp" />
+    <ClCompile Include="..\sim\ImpPDController.cpp" />
+    <ClCompile Include="..\sim\Joint.cpp" />
+    <ClCompile Include="..\sim\NNController.cpp" />
+    <ClCompile Include="..\sim\PDController.cpp" />
+    <ClCompile Include="..\sim\Perturb.cpp" />
+    <ClCompile Include="..\sim\PerturbManager.cpp" />
+    <ClCompile Include="..\sim\RBDModel.cpp" />
+    <ClCompile Include="..\sim\RBDUtil.cpp" />
+    <ClCompile Include="..\sim\SimBiped.cpp" />
+    <ClCompile Include="..\sim\SimBiped2D.cpp" />
+    <ClCompile Include="..\sim\SimBiped3D.cpp" />
+    <ClCompile Include="..\sim\SimBox.cpp" />
+    <ClCompile Include="..\sim\SimCapsule.cpp" />
+    <ClCompile Include="..\sim\SimCharacter.cpp" />
+    <ClCompile Include="..\sim\SimCharGeneral.cpp" />
+    <ClCompile Include="..\sim\SimCharSoftFall.cpp" />
+    <ClCompile Include="..\sim\SimObj.cpp" />
+    <ClCompile Include="..\sim\SimPlane.cpp" />
+    <ClCompile Include="..\sim\SimRaptor.cpp" />
+    <ClCompile Include="..\sim\SimSphere.cpp" />
+    <ClCompile Include="..\sim\SoccerController.cpp" />
+    <ClCompile Include="..\sim\SpAlg.cpp" />
+    <ClCompile Include="..\sim\TerrainGen2D.cpp" />
+    <ClCompile Include="..\sim\TerrainGen3D.cpp" />
+    <ClCompile Include="..\sim\TerrainRLCharController.cpp" />
+    <ClCompile Include="..\sim\TerrainRLCtrlFactory.cpp" />
+    <ClCompile Include="..\sim\WaypointController.cpp" />
+    <ClCompile Include="..\sim\WaypointVelController.cpp" />
+    <ClCompile Include="..\sim\World.cpp" />
+    <ClCompile Include="..\util\ArgParser.cpp" />
+    <ClCompile Include="..\util\BVHReader.cpp" />
+    <ClCompile Include="..\util\FileUtil.cpp" />
+    <ClCompile Include="..\util\IndexManager.cpp" />
+    <ClCompile Include="..\util\JsonUtil.cpp" />
+    <ClCompile Include="..\util\json\json_reader.cpp" />
+    <ClCompile Include="..\util\json\json_value.cpp" />
+    <ClCompile Include="..\util\json\json_writer.cpp" />
+    <ClCompile Include="..\util\MathUtil.cpp" />
+    <ClCompile Include="..\util\MotionDB.cpp" />
+    <ClCompile Include="..\util\PerlinNoise.cpp" />
+    <ClCompile Include="..\util\Rand.cpp" />
+    <ClCompile Include="..\util\Trajectory.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="opt\OptFunc.cpp" />
+    <ClCompile Include="opt\Optimizer.cpp" />
+    <ClCompile Include="scenarios\OptScenario.cpp" />
+    <ClCompile Include="scenarios\OptScenarioImitateEval.cpp" />
+    <ClCompile Include="scenarios\OptScenarioHikeEval.cpp" />
+    <ClCompile Include="scenarios\OptScenarioImitateStepEval.cpp" />
+    <ClCompile Include="scenarios\OptScenarioImitateTargetEval.cpp" />
+    <ClCompile Include="scenarios\OptScenarioPoliEval.cpp" />
+    <ClCompile Include="scenarios\OptScenarioSimChar.cpp" />
+    <ClCompile Include="scenarios\OptScenarioSoccerEval.cpp" />
+    <ClCompile Include="scenarios\ScenarioProcessMocap.cpp" />
+    <ClCompile Include="scenarios\ScenarioRetargetMotion.cpp" />
+    <ClCompile Include="scenarios\ScenarioSampleAction.cpp" />
+    <ClCompile Include="scenarios\ScenarioSegmentMotion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\library\caffe\include\caffe\blob.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\caffe.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\common.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\common_layers.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\data_layers.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\data_reader.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\data_transformer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\filler.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\internal_thread.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\absval_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\accuracy_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\argmax_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\base_conv_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\base_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\batch_norm_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\batch_reindex_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\bias_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\bnll_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\concat_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\contrastive_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\conv_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\crop_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_conv_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_lcn_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_lrn_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_pooling_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_relu_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_sigmoid_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_softmax_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\cudnn_tanh_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\deconv_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\dropout_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\dummy_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\eltwise_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\elu_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\embed_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\euclidean_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\exp_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\filter_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\flatten_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\hdf5_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\hdf5_output_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\hinge_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\im2col_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\image_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\infogain_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\inner_product_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\input_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\log_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\lrn_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\lstm_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\memory_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\multinomial_logistic_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\mvn_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\neuron_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\pooling_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\power_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\prelu_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\python_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\recurrent_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\reduction_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\relu_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\reshape_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\rnn_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\scale_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\sigmoid_cross_entropy_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\sigmoid_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\silence_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\slice_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\softmax_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\softmax_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\split_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\spp_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\tanh_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\threshold_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\tile_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\weighted_euclidean_loss_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layers\window_data_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\layer_factory.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\loss_layers.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\net.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\neuron_layers.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\parallel.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\python_layer.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\sgd_solvers.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\solver.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\solver_factory.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\syncedmem.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\benchmark.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\blocking_queue.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\cudnn.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\db.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\db_leveldb.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\db_lmdb.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\device_alternate.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\format.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\gpu_util.cuh">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\hdf5.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\im2col.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\insert_splits.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\io.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\math_functions.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\mkl_alternate.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\rng.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\signal_handler.h" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\util\upgrade_proto.hpp" />
+    <ClInclude Include="..\..\library\caffe\include\caffe\vision_layers.hpp" />
+    <ClInclude Include="..\..\library\caffe\src\caffe\proto\caffe.pb.h" />
+    <ClInclude Include="..\..\library\caffe\src\caffe\proto\caffe_pretty_print.pb.h" />
+    <ClInclude Include="..\anim\Character.h" />
+    <ClInclude Include="..\anim\IKSolver.h" />
+    <ClInclude Include="..\anim\KinCharacter.h" />
+    <ClInclude Include="..\anim\KinController.h" />
+    <ClInclude Include="..\anim\KinTree.h" />
+    <ClInclude Include="..\anim\MocapStepController.h" />
+    <ClInclude Include="..\anim\Motion.h" />
+    <ClInclude Include="..\learning\ACLearner.h" />
+    <ClInclude Include="..\learning\ACTrainer.h" />
+    <ClInclude Include="..\learning\CaclaTrainer.h" />
+    <ClInclude Include="..\learning\ExpBuffer.h" />
+    <ClInclude Include="..\learning\ExpTuple.h" />
+    <ClInclude Include="..\learning\NeuralNet.h" />
+    <ClInclude Include="..\learning\NeuralNetLearner.h" />
+    <ClInclude Include="..\learning\NeuralNetTrainer.h" />
+    <ClInclude Include="..\learning\NNSolver.h" />
+    <ClInclude Include="..\learning\TrainerInterface.h" />
+    <ClInclude Include="..\scenarios\Scenario.h" />
+    <ClInclude Include="..\scenarios\ScenarioExp.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpCacla.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpHike.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpImitate.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpImitateStep.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpImitateTarget.h" />
+    <ClInclude Include="..\scenarios\ScenarioExpSoccer.h" />
+    <ClInclude Include="..\scenarios\ScenarioHikeEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitate.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitateEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitateStep.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitateStepEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitateTarget.h" />
+    <ClInclude Include="..\scenarios\ScenarioImitateTargetEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioPoliEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioSimChar.h" />
+    <ClInclude Include="..\scenarios\ScenarioSoccerEval.h" />
+    <ClInclude Include="..\scenarios\ScenarioTrackMotion.h" />
+    <ClInclude Include="..\scenarios\ScenarioTrain.h" />
+    <ClInclude Include="..\scenarios\ScenarioTrainCacla.h" />
+    <ClInclude Include="..\scenarios\ScenarioTrainHike.h" />
+    <ClInclude Include="..\scenarios\ScenarioTrainSoccer.h" />
+    <ClInclude Include="..\sim\BaseControllerCacla.h" />
+    <ClInclude Include="..\sim\BipedStepController3D.h" />
+    <ClInclude Include="..\sim\CharController.h" />
+    <ClInclude Include="..\sim\ContactManager.h" />
+    <ClInclude Include="..\sim\Controller.h" />
+    <ClInclude Include="..\sim\CtController.h" />
+    <ClInclude Include="..\sim\CtCtrlUtil.h" />
+    <ClInclude Include="..\sim\CtPDController.h" />
+    <ClInclude Include="..\sim\CtPDPhaseController.h" />
+    <ClInclude Include="..\sim\CtPhaseController.h" />
+    <ClInclude Include="..\sim\CtTargetController.h" />
+    <ClInclude Include="..\sim\ExpPDController.h" />
+    <ClInclude Include="..\sim\Ground.h" />
+    <ClInclude Include="..\sim\GroundConveyor3D.h" />
+    <ClInclude Include="..\sim\GroundDynamicObstacles3D.h" />
+    <ClInclude Include="..\sim\GroundFactory.h" />
+    <ClInclude Include="..\sim\GroundHills3D.h" />
+    <ClInclude Include="..\sim\GroundObstacles3D.h" />
+    <ClInclude Include="..\sim\GroundPlane.h" />
+    <ClInclude Include="..\sim\GroundTrail3D.h" />
+    <ClInclude Include="..\sim\GroundVar2D.h" />
+    <ClInclude Include="..\sim\GroundVar3D.h" />
+    <ClInclude Include="..\sim\ImpPDController.h" />
+    <ClInclude Include="..\sim\Joint.h" />
+    <ClInclude Include="..\sim\NNController.h" />
+    <ClInclude Include="..\sim\PDController.h" />
+    <ClInclude Include="..\sim\Perturb.h" />
+    <ClInclude Include="..\sim\PerturbManager.h" />
+    <ClInclude Include="..\sim\RBDModel.h" />
+    <ClInclude Include="..\sim\RBDUtil.h" />
+    <ClInclude Include="..\sim\SimBiped.h" />
+    <ClInclude Include="..\sim\SimBiped2D.h" />
+    <ClInclude Include="..\sim\SimBiped3D.h" />
+    <ClInclude Include="..\sim\SimBox.h" />
+    <ClInclude Include="..\sim\SimCapsule.h" />
+    <ClInclude Include="..\sim\SimCharacter.h" />
+    <ClInclude Include="..\sim\SimCharGeneral.h" />
+    <ClInclude Include="..\sim\SimCharSoftFall.h" />
+    <ClInclude Include="..\sim\SimObj.h" />
+    <ClInclude Include="..\sim\SimPlane.h" />
+    <ClInclude Include="..\sim\SimRaptor.h" />
+    <ClInclude Include="..\sim\SimSphere.h" />
+    <ClInclude Include="..\sim\SoccerController.h" />
+    <ClInclude Include="..\sim\SpAlg.h" />
+    <ClInclude Include="..\sim\TerrainGen2D.h" />
+    <ClInclude Include="..\sim\TerrainGen3D.h" />
+    <ClInclude Include="..\sim\TerrainRLCharController.h" />
+    <ClInclude Include="..\sim\TerrainRLCtrlFactory.h" />
+    <ClInclude Include="..\sim\WaypointController.h" />
+    <ClInclude Include="..\sim\WaypointVelController.h" />
+    <ClInclude Include="..\sim\World.h" />
+    <ClInclude Include="..\util\ArgParser.h" />
+    <ClInclude Include="..\util\BVHReader.h" />
+    <ClInclude Include="..\util\FileUtil.h" />
+    <ClInclude Include="..\util\IndexManager.h" />
+    <ClInclude Include="..\util\JsonUtil.h" />
+    <ClInclude Include="..\util\json\allocator.h" />
+    <ClInclude Include="..\util\json\assertions.h" />
+    <ClInclude Include="..\util\json\autolink.h" />
+    <ClInclude Include="..\util\json\config.h" />
+    <ClInclude Include="..\util\json\features.h" />
+    <ClInclude Include="..\util\json\forwards.h" />
+    <ClInclude Include="..\util\json\json.h" />
+    <ClInclude Include="..\util\json\json_tool.h" />
+    <ClInclude Include="..\util\json\reader.h" />
+    <ClInclude Include="..\util\json\value.h" />
+    <ClInclude Include="..\util\json\version.h" />
+    <ClInclude Include="..\util\json\writer.h" />
+    <ClInclude Include="..\util\MathUtil.h" />
+    <ClInclude Include="..\util\MotionDB.h" />
+    <ClInclude Include="..\util\PerlinNoise.h" />
+    <ClInclude Include="..\util\Rand.h" />
+    <ClInclude Include="..\util\Trajectory.h" />
+    <ClInclude Include="..\util\Util.h" />
+    <ClInclude Include="opt\OptFunc.h" />
+    <ClInclude Include="opt\Optimizer.h" />
+    <ClInclude Include="scenarios\OptScenario.h" />
+    <ClInclude Include="scenarios\OptScenarioImitateEval.h" />
+    <ClInclude Include="scenarios\OptScenarioHikeEval.h" />
+    <ClInclude Include="scenarios\OptScenarioImitateStepEval.h" />
+    <ClInclude Include="scenarios\OptScenarioImitateTargetEval.h" />
+    <ClInclude Include="scenarios\OptScenarioPoliEval.h" />
+    <ClInclude Include="scenarios\OptScenarioSimChar.h" />
+    <ClInclude Include="scenarios\OptScenarioSoccerEval.h" />
+    <ClInclude Include="scenarios\ScenarioProcessMocap.h" />
+    <ClInclude Include="scenarios\ScenarioRetargetMotion.h" />
+    <ClInclude Include="scenarios\ScenarioSampleAction.h" />
+    <ClInclude Include="scenarios\ScenarioSegmentMotion.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

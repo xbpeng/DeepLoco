@@ -1,0 +1,49 @@
+-scenario= hike_eval
+-output_path= output/int_hike_eval.txt
+-record_reward= true
+-reward_output_path= output/int_hike_reward.txt
+
+-character_file= data/characters/biped3d_mocap.txt
+-motion_file= data/motions/biped3d_walk.txt
+-state_file= data/states/biped3d_sim_walk_state.txt
+
+-num_threads= 8
+
+-sim_mode= 3d
+-char_type= general
+-char_ctrl= waypoint
+-char_ctrl_ct_query_rate= 30
+-char_ctrl_cycle_dur= 1
+-char_ctrl_waypoint_init_step_len= 0.5
+-terrain_file= data/terrain/trail3d.txt
+
+-num_update_steps= 20
+-num_sim_substeps= 2
+-world_scale= 4
+
+-policy_solver= data/policies/biped3d/nets/biped3d_llc_actor_solver.prototxt
+-policy_net= data/policies/biped3d/nets/biped3d_llc_actor_net.prototxt
+-policy_model= data/policies/biped3d/models/biped3d_llc_model.h5
+
+-critic_solver= data/policies/biped3d/nets/biped3d_llc_critic_solver.prototxt
+-critic_net= data/policies/biped3d/nets/biped3d_llc_critic_net.prototxt
+-critic_model= data/policies/biped3d/models/biped3d_llc_model_critic.h5
+
+-policy_solver1= data/policies/biped3d/nets/biped3d_hlc_actor_solver.prototxt
+-policy_net1= data/policies/biped3d/nets/biped3d_hlc_actor_net.prototxt
+-policy_model1= data/policies/biped3d/models/biped3d_hlc_model.h5
+
+-critic_solver1= data/policies/biped3d/nets/biped3d_hlc_critic_solver.prototxt
+-critic_net1= data/policies/biped3d/nets/biped3d_hlc_critic_net.prototxt
+-critic_model1= data/policies/biped3d/models/biped3d_hlc_model_critic.h5
+
+-enable_rand_state_reset= false
+-episode_max_time= 200
+-rand_target_pos_time_min= 50
+-rand_target_pos_time_max= 100
+
+
+-rand_seed= 21
+-poli_eval_max_episodes= 32
+
+-kin_ctrl_file= data/controllers/biped3D/biped3d_mocap_step_ctrl0.txt

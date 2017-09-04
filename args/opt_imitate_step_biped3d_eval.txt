@@ -1,0 +1,58 @@
+-scenario= imitate_step_eval
+
+-character_file= data/characters/biped3d_mocap.txt
+-motion_file= data/motions/biped3d_walk.txt
+-state_file= data/states/biped3d_sim_walk_state.txt
+
+-output_path= output/int_step_eval.txt
+-record_reward= true
+-reward_output_path= output/int_step_reward.txt
+-record_pose_err= false
+-pose_err_file= output/int_step_pose_err.txt
+
+-sim_mode= 3d
+-char_type= general
+-char_ctrl= biped3d_step
+-char_ctrl_ct_query_rate= 30
+-char_ctrl_cycle_dur= 1
+-terrain_file= data/terrain/plane.txt
+
+-num_update_steps= 20
+-num_sim_substeps= 2
+-world_scale= 4
+
+-policy_solver= data/policies/biped3d/nets/biped3d_llc_actor_solver.prototxt
+-policy_net= data/policies/biped3d/nets/biped3d_llc_actor_net.prototxt
+//-policy_model= data/policies/biped3d/models/biped3d_llc_model.h5
+
+-critic_solver= data/policies/biped3d/nets/biped3d_llc_critic_solver.prototxt
+-critic_net= data/policies/biped3d/nets/biped3d_llc_critic_net.prototxt
+//-critic_model= data/policies/biped3d/models/biped3d_llc_model_critic.h5
+
+-enable_rand_state_reset= true
+-rand_seed= 21
+-poli_eval_max_episodes= 32
+-episode_max_time= 20
+
+-step_max_heading_turn_rate= 0.25
+-step_sharp_turn_prob= 0.1
+-step_mean_width= 0.15
+-step_length_min= 0.5
+-step_length_max= 0.5
+//-step_length_min= 0
+//-step_length_max= 0.7
+-change_step_len_prob= 0.05
+
+-rand_target_pos_time_min= 1
+-rand_target_pos_time_max= 5
+
+-enable_rand_perturbs= false
+-perturb_time_min= 2
+-perturb_time_max= 5
+-min_pertrub_duration= 0.1
+-max_perturb_duration= 0.4
+-perturb_part_ids= 0 1
+
+-num_threads= 8
+
+-kin_ctrl_file= data/controllers/biped3D/biped3d_mocap_step_ctrl0.txt

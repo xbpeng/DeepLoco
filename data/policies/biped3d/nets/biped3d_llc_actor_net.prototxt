@@ -1,0 +1,254 @@
+name: "Dog2D_Actor"
+
+layer { 
+  name: 'input' 
+  type: 'Input' 
+  top: "input"
+  top: "label"
+  top: "weights"
+  input_param { 
+	shape: { dim: 32 dim: 1 dim: 1 dim: 125 } 
+    shape: { dim: 32 dim: 1 dim: 1 dim: 22 } 
+	shape: { dim: 32 dim: 1 dim: 1 dim: 22 } 
+  } 
+
+  include: { phase: TRAIN }
+}
+
+layer { 
+  name: 'input' 
+  type: 'Input' 
+  top: 'input' 
+  input_param { 
+    shape: { dim: 1 dim: 1 dim: 1 dim: 125 } 
+  } 
+
+  include: { phase: TEST }
+}
+
+layer {
+	name: "slice0"
+	type: "Slice"
+	bottom: "input"
+	top: "data_char"
+	top: "data_phase0"
+	top: "data_phase1"
+	top: "data_phase2"
+	top: "data_phase3"
+	top: "data_task"
+	slice_param {
+		axis: 3
+		slice_point: 106
+		slice_point: 107
+		slice_point: 108
+		slice_point: 109
+		slice_point: 110
+	}
+}
+
+layer {
+	name: "data_char_task"
+	type: "Concat"
+	bottom: "data_char"
+	bottom: "data_task"
+	top: "data_char_task"
+	concat_param {
+		axis: 3
+	}
+}
+
+layer {
+	name: "tile_phase0"
+	type: "Tile"
+	bottom: "data_phase0"
+	top: "tile_phase0"
+	tile_param {
+		axis: 3
+		tiles: 121
+	}
+}
+
+layer {
+	name: "tile_phase1"
+	type: "Tile"
+	bottom: "data_phase1"
+	top: "tile_phase1"
+	tile_param {
+		axis: 3
+		tiles: 121
+	}
+}
+
+layer {
+	name: "tile_phase2"
+	type: "Tile"
+	bottom: "data_phase2"
+	top: "tile_phase2"
+	tile_param {
+		axis: 3
+		tiles: 121
+	}
+}
+
+layer {
+	name: "tile_phase3"
+	type: "Tile"
+	bottom: "data_phase3"
+	top: "tile_phase3"
+	tile_param {
+		axis: 3
+		tiles: 121
+	}
+}
+
+layer {
+  name: "phase0_prod"
+  type: "Eltwise"
+  bottom: "tile_phase0"
+  bottom: "data_char_task"
+  top: "phase0_prod"
+  eltwise_param { operation: PROD }
+}
+
+layer {
+  name: "phase1_prod"
+  type: "Eltwise"
+  bottom: "tile_phase1"
+  bottom: "data_char_task"
+  top: "phase1_prod"
+  eltwise_param { operation: PROD }
+}
+
+layer {
+  name: "phase2_prod"
+  type: "Eltwise"
+  bottom: "tile_phase2"
+  bottom: "data_char_task"
+  top: "phase2_prod"
+  eltwise_param { operation: PROD }
+}
+
+layer {
+  name: "phase3_prod"
+  type: "Eltwise"
+  bottom: "tile_phase3"
+  bottom: "data_char_task"
+  top: "phase3_prod"
+  eltwise_param { operation: PROD }
+}
+
+
+layer {
+	name: "bilin_state"
+	type: "Concat"
+	bottom: "phase0_prod"
+	bottom: "phase1_prod"
+	bottom: "phase2_prod"
+	bottom: "phase3_prod"
+	top: "bilin_state"
+	concat_param {
+		axis: 3
+	}
+}
+
+
+
+
+layer {
+  name: "ip0"
+  type: "InnerProduct"
+  bottom: "bilin_state"
+  top: "ip0"
+  param {
+    lr_mult: 1
+	decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+	decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 512
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+
+layer {
+  name: "relu0"
+  type: "ReLU"
+  bottom: "ip0"
+  top: "relu0"
+}
+
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "relu0"
+  top: "ip1"
+  param {
+    lr_mult: 1
+	decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+	decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 512
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "ip1"
+  top: "relu1"
+}
+
+layer {
+  name: "output"
+  type: "InnerProduct"
+  bottom: "relu1"
+  top: "output"
+  param {
+    lr_mult: 1
+	decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+	decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 22
+    weight_filler {
+      type: "uniform"
+      min: -0.01
+	  max: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+
+layer {
+  name: "loss"
+  type: "WeightedEuclideanLoss"
+  bottom: "output"
+  bottom: "label"
+  bottom: "weights"
+  top: "loss"
+
+  include: { phase: TRAIN }
+}

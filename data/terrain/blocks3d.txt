@@ -1,0 +1,14 @@
+{
+"Type": "obstacles3d",
+
+"Params": 
+[
+	{
+		"ObstacleDensity": 0.015,
+		"ObstacleWidth0": 0.5,
+		"ObstacleWidth1": 7,
+		"ObstacleHeight0": 1,
+		"ObstacleHeight1": 5
+	}
+]
+}
