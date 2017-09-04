@@ -42,7 +42,7 @@ export PATH=[PREMAKE_DIR]:$PATH
 ### Build Instructions
 
 1. Download the most recent compressed external file from the newest release. 
-1. Extract it and move into the TerrainRL directory. The top directory of the TerrainRL repository should now contain a directory called `external`, in addition to all the other directories that were there before.
+1. Extract it and move into the DeepLoco directory. The top directory of the DeepLoco repository should now contain a directory called `external`, in addition to all the other directories that were there before.
 1. Build the source code for caffe that came in the `external` directory.
 	```
 	cd external/caffe
@@ -50,7 +50,7 @@ export PATH=[PREMAKE_DIR]:$PATH
 	make
 	cd ../../
 	```
-1. Copy the newly-compiled caffe lib directory from external/caffe/build/lib to the top directory of TerrainRL.
+1. Copy the newly-compiled caffe lib directory from external/caffe/build/lib to the top directory of DeepLoco.
 	```
 	cp -r external/caffe/build/lib .
 	```
@@ -81,25 +81,25 @@ cp external/jsoncpp/build/debug/src/lib_json/*.so* lib/
 This setup has been tested on Windows 7 and 10 with visual studio 2013.
 
   1. Download the library.zip file that contains almost all of the relevant pre compiled external libraries and source code.
-  2. Unpack this library in the same directory the project is located in. For example, TerrainRL/../.
+  2. Unpack this library in the same directory the project is located in. For example, DeepLoco/../.
   3. You might need to install opengl/glu/GL headers. We have been using freeglut for this project. glew might already be included in library.zip.
   4. You will need to copy some dll files from dynamic_lib.zip to the directory the project is compiled to. For example, optimizer/x64/Debug/. These files are needed by the framework during runtime.
-  5. Might need to create a folder in TerrainRL called "output", This is where temprary and current policies will be dumped.
+  5. Might need to create a folder in DeepLoco called "output", This is where temprary and current policies will be dumped.
 
 ## Running The System
 
-After the system has been build there are two executable files that server different purposes. The **TerrainRL** program is for visually simulating the a controller and **TerrainRL_Optimize** is for optimizing the parameters of some controller.
+After the system has been build there are two executable files that server different purposes. The **DeepLoco** program is for visually simulating the a controller and **DeepLoco_Optimize** is for optimizing the parameters of some controller.
 
 Examples:  
 	To simulate a controller/character  
-	./TerrainRL -arg_file= args/test_args.txt
+	./DeepLoco -arg_file= args/test_args.txt
 	To simulate a controller/character with a specific policy  
-	./TerrainRL_Optimizer -arg_file= args/opt_int_poli_hopper_eval.txt -policy_model= output/intermediate/trainer_int_model_0000160000.h5  
+	./DeepLoco_Optimizer -arg_file= args/opt_int_poli_hopper_eval.txt -policy_model= output/intermediate/trainer_int_model_0000160000.h5  
 	To Train a controller  
-	./TerrainRL_Optimizer -arg_file= args/opt_args_train.txt  
-	./TerrainRL_Optimizer -arg_file= args/opt_args_train_hopper.txt  
+	./DeepLoco_Optimizer -arg_file= args/opt_args_train.txt  
+	./DeepLoco_Optimizer -arg_file= args/opt_args_train_hopper.txt  
 	To Optimize a controllers parameters  
-	./TerrainRL_Optimizer -arg_file= args/opt_args_jump.txt  
+	./DeepLoco_Optimizer -arg_file= args/opt_args_jump.txt  
 
 
 ## Key Bindings
