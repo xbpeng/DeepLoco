@@ -54,6 +54,13 @@ export PATH=[PREMAKE_DIR]:$PATH
 	```
 	cp -r external/caffe/build/lib .
 	```
+1. Copy other prebuilt libraries from the external folder
+
+	```
+	cp external/caffe/build/lib/libcaffe.* lib/
+	cp external/Bullet/bin/*.so lib/
+	cp external/jsoncpp/build/debug/src/lib_json/*.so* lib/
+	``` 
 1. Generate makefiles using premake4.
 	```
 	premake4 clean
@@ -66,13 +73,6 @@ export PATH=[PREMAKE_DIR]:$PATH
 	```
 	Note: you can speed up the build by appending the `-j8` flag to this last `make` command, where `8` here is the number of concurrent build threads that `make` will launch. Choose a number that makes sense based on the hardware resources you have available to you.
 
-1. Copy the prebuilt libraries from the external folder
-
-```
-cp external/caffe/build/lib/libcaffe.* lib/
-cp external/Bullet/bin/*.so lib/
-cp external/jsoncpp/build/debug/src/lib_json/*.so* lib/
-``` 
  
 **Note:** There are some issues with the installation on Ubuntu 14.04. Some of the libraries have changed their location and name (see https://github.com/BVLC/caffe/issues/2347 for a solution).
 
